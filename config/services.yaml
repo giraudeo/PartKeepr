@@ -1,0 +1,54 @@
+imports:
+    - { resource: parameters.php }
+    - { resource: security.yml }
+    - { resource: partkeepr.yml }
+    - { resource: config_framework.yml }
+    - { resource: config_doctrine.yml }
+    - { resource: config_fos_user.yml }
+    - { resource: config_dunglas.yml }
+    - { resource: config_partkeepr.yml }
+    - { resource: config_filesystem.yml }
+
+api_platform:
+    title:       "PartKeepr"
+    description: "The PartKeepr REST API"
+    collection:
+        pagination:
+            items_per_page_parameter_name: 'ItemsPerPage'
+#                client_can_change: true
+
+sprite_generator:
+    sprites:
+        fugue16:
+            inDir: '%kernel.project_dir%/../vendor/brainbits/fugue-icons-bundle/src/Brainbits/FugueIconsBundle/Resources/public/icons/fugue/16/'
+            outImage: '%kernel.project_dir%/../web/spritesheets/fugue-16.png'
+            outCss: '%kernel.project_dir%/../web/spritesheets/fugue-16.css'
+            relativeImagePath: ./
+            padding: 5
+            spriteClass: fugue-icon
+            cssFormat: css
+            imagePositioning: min-image
+            imageGenerator: gd2
+        partkeepr:
+            inDir: '%kernel.project_dir%/../src/PartKeepr/FrontendBundle/Resources/public/images/icons/'
+            outImage: '%kernel.project_dir%/../web/spritesheets/partkeepr.png'
+            outCss: '%kernel.project_dir%/../web/spritesheets/partkeepr.css'
+            relativeImagePath: ./
+            padding: 5
+            spriteClass: partkeepr-icon
+            cssFormat: css
+            imagePositioning: min-image
+            imageGenerator: gd2
+
+services:
+    serializer.normalizer.custom:
+        class: Symfony\Component\Serializer\Normalizer\ObjectNormalizer
+        arguments:
+            - "@serializer.mapping.class_metadata_factory"
+            - null
+            - "@serializer.property_accessor"
+        tags:
+            - { name: serializer.normalizer, priority: -1 }
+        calls:
+            - method: "setCircularReferenceLimit"
+              arguments: [ [ 5 ] ]

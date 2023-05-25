@@ -3,5 +3,7 @@ fos_user:
     firewall_name: main
     user_class: PartKeepr\AuthBundle\Entity\FOSUser
     from_email:
-        address: "yourapp@yourapp.com"
-        sender_name: "Demo String"
+        address: "nobody@nobody.com"
+        sender_name: "nobody"
+    service:
+        mailer: fos_user.mailer.twig_swift

@@ -1,9 +1,9 @@
-dunglas_api:
+api_platform:
     title:       "PartKeepr"
     description: "The PartKeepr REST API"
     collection:
         pagination:
-            items_per_page:
-                client_can_change: true
-    supported_formats: [ "jsonld", "csv", "xlsx" ]
-    cache: %cache.dunglas%
+            items_per_page_parameter_name: 'ItemsPerPage'
+#                client_can_change: true
+#    supported_formats: [ "jsonld", "csv", "xlsx" ]
+#    cache: '%cache.dunglas%'

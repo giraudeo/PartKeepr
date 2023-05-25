@@ -35,10 +35,6 @@ doctrine:
                 host:       localhost
                 user:       travis
                 charset:    UTF8
-    orm:
-        metadata_cache_driver: array
-        query_cache_driver: array
-        result_cache_driver: array
 
 stof_doctrine_extensions:
     default_locale: en_US
