@@ -1,3 +1,4 @@
+.DS_Store
 /build
 /setup
 /frontend
@@ -23,8 +24,9 @@ theme/sass/.sass-cache/
 /nbproject/
 partkeepr.jsfiles
 app/authkey.php
-app/config/parameters.php
-app/config/parameters_setup.php
+config/parameters.php
+config/parameters_setup.php
+config/parameters.yml
 
 /web/bundles/
 /web/images/*
@@ -34,7 +36,6 @@ app/config/parameters_setup.php
 /web/css/*
 /app/bootstrap.php.cache
 /app/cache/*
-/app/config/parameters.yml
 /app/logs/*
 /vendor/
 /bin/
